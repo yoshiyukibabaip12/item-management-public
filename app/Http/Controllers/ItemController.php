@@ -39,7 +39,15 @@ class ItemController extends Controller
             // バリデーション
             $this->validate($request, [
                 'name' => 'required|max:100',
+                'type' => 'required',
+                'detail' => 'required',
+                'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
             ]);
+
+            // 画像アップロード処理
+            if ($request->file('image')) {
+                $imagePath = $request->file('image')->store('uploads', 'public');
+            }
 
             // 商品登録
             Item::create([
@@ -47,6 +55,7 @@ class ItemController extends Controller
                 'name' => $request->name,
                 'type' => $request->type,
                 'detail' => $request->detail,
+                'image_path' => $imagePath ?? null, // 画像のパスを保存
             ]);
 
             return redirect('/items');

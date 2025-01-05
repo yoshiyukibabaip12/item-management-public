@@ -27,4 +27,5 @@ Route::prefix('items')->group(function () {
     Route::post('/add', [App\Http\Controllers\ItemController::class, 'add']);
     Route::post('/delete', [App\Http\Controllers\ItemController::class, 'delete']);
     Route::get('/search', [App\Http\Controllers\SearchController::class, 'search'])->name('search');
+    Route::post('/upload', [App\Http\Controllers\ItemController::class, 'upload'])->name('upload');
 });

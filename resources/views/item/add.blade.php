@@ -20,30 +20,37 @@
             @endif
 
             <div class="card card-primary">
-                <form method="POST">
-                    @csrf
+                <form method="POST" action="/items/add" enctype="multipart/form-data">
+                @csrf
                     <div class="card-body">
                         <div class="form-group">
-                            <label for="name">名前</label>
-                            <input type="text" class="form-control" id="name" name="name" placeholder="名前">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="type">種別</label>
-                            <input type="text" class="form-control" id="type" name="type" placeholder="種別">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="detail">詳細</label>
-                            <input type="text" class="form-control" id="detail" name="detail" placeholder="詳細説明">
-                        </div>
+                        <label for="name">名前</label>
+                        <input type="text" class="form-control" id="name" name="name" placeholder="名前">
                     </div>
 
-                    <div class="card-footer">
-                        <button type="submit" class="btn btn-primary">登録</button>
+                    <div class="form-group">
+                        <label for="type">種別</label>
+                        <input type="text" class="form-control" id="type" name="type" placeholder="種別">
                     </div>
-                </form>
+
+                    <div class="form-group">
+                        <label for="detail">詳細</label>
+                        <input type="text" class="form-control" id="detail" name="detail" placeholder="詳細説明">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="image">画像</label>
+                        <input type="file" class="form-control" id="image" name="image">
+                    </div>
             </div>
+
+        <div class="card-footer">
+            <button type="submit" class="btn btn-primary">登録</button>
+        </div>
+    </form>
+</div>
+
+
         </div>
     </div>
 @stop

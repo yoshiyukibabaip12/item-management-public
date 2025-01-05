@@ -22,7 +22,7 @@
                 </div>
                 <div class="card-body">
                     <form action="{{ route('search') }}" method="GET">
-                        <input type="text" name="query" placeholder="検索キーワードを入力">
+                        <input type="text" name="query" placeholder="商品名を入力">
                         <button type="submit">検索</button>
                     </form>
                 </div>
@@ -31,7 +31,8 @@
                         <thead>
                             <tr>
                                 <th>ID</th>
-                                <th>名前</th>
+                                <th>イメージ</th>
+                                <th>商品名</th>
                                 <th>種別</th>
                                 <th>詳細</th>
                                 <th>操作</th>
@@ -41,6 +42,12 @@
                             @foreach ($items as $item)
                                 <tr>
                                     <td>{{ $item->id }}</td>
+                                    <td>
+                                    @if($item->image_path) 
+                                    <img src="{{ asset('storage/' . $item->image_path) }}" alt="商品イメージ" width="100"> 
+                                    @else 画像なし 
+                                    @endif
+                                    </td>
                                     <td>{{ $item->name }}</td>
                                     <td>{{ $item->type }}</td>
                                     <td>{{ $item->detail }}</td>
