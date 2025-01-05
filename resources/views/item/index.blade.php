@@ -20,6 +20,12 @@
                         </div>
                     </div>
                 </div>
+                <div class="card-body">
+                    <form action="{{ route('search') }}" method="GET">
+                        <input type="text" name="query" placeholder="検索キーワードを入力">
+                        <button type="submit">検索</button>
+                    </form>
+                </div>
                 <div class="card-body table-responsive p-0">
                     <table class="table table-hover text-nowrap">
                         <thead>
