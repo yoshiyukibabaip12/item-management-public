@@ -56,7 +56,7 @@
                                         onsubmit="return confirm('削除します。よろしいですか？');">
                                         @csrf
                                         <input type="hidden" name="id" value="{{ $item->id }}">
-                                        <input type="submit" value="削除" class="btn btn-danger">
+                                        <input type="submit" value="削除" class="btn">
                                         </form>
                                     </td>
                                 </tr>
