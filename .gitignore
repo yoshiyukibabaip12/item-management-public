@@ -17,3 +17,7 @@ yarn-error.log
 /.fleet
 /.idea
 /.vscode
+
+# Ignore all files in public/build except manifest.json
+/public/build/*
+!/public/build/manifest.json
