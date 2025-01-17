@@ -57,7 +57,7 @@ class ItemController extends Controller
                 'name' => $request->name,
                 'type' => $request->type,
                 'detail' => $request->detail,
-                'image_base64' => $image_base64,
+                'image_base64' => $imagePath ?? null, // 画像のパスを保存
             ]);
 
             return redirect('/items');

@@ -45,10 +45,9 @@ class ItemController extends Controller
             ]);
 
             // 画像アップロード処理
-            $image_base64 = null;
+            
             if ($request->file('image')) {
-                $image =$request->file('image');
-                $image_base64 = base64_encode(file_get_contents($image->getRealPath()));
+                $imagePath = $request->file('image')->store('uploads', 'public');
             }
 
             // 商品登録
@@ -57,7 +56,7 @@ class ItemController extends Controller
                 'name' => $request->name,
                 'type' => $request->type,
                 'detail' => $request->detail,
-                'image_base64' => $image_base64,
+                'image_path' => $imagePath ?? null, // 画像のパスを保存
             ]);
 
             return redirect('/items');
