@@ -47,8 +47,10 @@ class ItemController extends Controller
             // 画像アップロード処理
             $image_base64 = null;
             if ($request->file('image')) {
+                //dd($request->file('image'));
                 $image =$request->file('image');
                 $image_base64 = base64_encode(file_get_contents($image->getRealPath()));
+                //dd($image_base64);
             }
 
             // 商品登録
