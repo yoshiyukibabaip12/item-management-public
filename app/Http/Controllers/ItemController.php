@@ -39,8 +39,8 @@ class ItemController extends Controller
             // バリデーション
             $this->validate($request, [
                 'name' => 'required|max:100',
-                'type' => 'required',
-                'detail' => 'required',
+                'type' => 'required|max:100',
+                'detail' => 'required|max:500',
                 'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
             ]);
 
